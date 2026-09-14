@@ -1,26 +1,395 @@
 @import "tailwindcss";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 :root {
+  --navy-950: #0a1628;
+  --navy-900: #0f1d35;
+  --navy-800: #162a4a;
+  --navy-700: #1e3a5f;
+  --navy-600: #2a4f7a;
+  --navy-500: #3a6494;
+  --slate-900: #1e293b;
+  --slate-800: #2d3a4f;
+  --slate-700: #3d4f68;
+  --slate-600: #4f6580;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --slate-300: #cbd5e1;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50: #f8fafc;
+  --teal-600: #0d9488;
+  --teal-500: #14b8a6;
+  --teal-400: #2dd4bf;
+  --teal-300: #5eead4;
+  --amber-600: #d97706;
+  --amber-500: #f59e0b;
+  --amber-400: #fbbf24;
+  --risk-low: #22c55e;
+  --risk-medium: #f59e0b;
+  --risk-high: #ef4444;
+  --diff-add: #22c55e;
+  --diff-remove: #ef4444;
+  --diff-modify: #f59e0b;
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: var(--navy-950);
+  --surface: var(--slate-50);
+  --surface-raised: #ffffff;
+  --surface-overlay: rgba(255, 255, 255, 0.95);
+  --border: var(--slate-200);
+  --border-strong: var(--slate-300);
+  --text-primary: var(--navy-950);
+  --text-secondary: var(--slate-600);
+  --text-muted: var(--slate-400);
+  --accent: var(--teal-600);
+  --accent-hover: var(--teal-500);
+  --accent-soft: rgba(13, 148, 136, 0.1);
+  --shadow-sm: 0 1px 2px rgba(10, 22, 40, 0.05);
+  --shadow-md: 0 4px 12px rgba(10, 22, 40, 0.08);
+  --shadow-lg: 0 8px 30px rgba(10, 22, 40, 0.12);
+  --shadow-xl: 0 20px 50px rgba(10, 22, 40, 0.15);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+[data-theme="dark"] {
+  --background: var(--navy-950);
+  --foreground: var(--slate-100);
+  --surface: var(--navy-900);
+  --surface-raised: var(--navy-800);
+  --surface-overlay: rgba(15, 29, 53, 0.95);
+  --border: var(--navy-700);
+  --border-strong: var(--navy-600);
+  --text-primary: var(--slate-100);
+  --text-secondary: var(--slate-400);
+  --text-muted: var(--slate-500);
+  --accent: var(--teal-400);
+  --accent-hover: var(--teal-300);
+  --accent-soft: rgba(45, 212, 191, 0.1);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-border-custom: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-navy-950: var(--navy-950);
+  --color-navy-900: var(--navy-900);
+  --color-navy-800: var(--navy-800);
+  --color-navy-700: var(--navy-700);
+  --color-teal-600: var(--teal-600);
+  --color-teal-500: var(--teal-500);
+  --color-teal-400: var(--teal-400);
+  --color-slate-50: var(--slate-50);
+  --color-slate-100: var(--slate-100);
+  --color-slate-200: var(--slate-200);
+  --color-slate-300: var(--slate-300);
+  --color-slate-400: var(--slate-400);
+  --color-slate-500: var(--slate-500);
+  --color-slate-600: var(--slate-600);
+  --color-slate-700: var(--slate-700);
+  --color-slate-800: var(--slate-800);
+  --color-risk-low: var(--risk-low);
+  --color-risk-medium: var(--risk-medium);
+  --color-risk-high: var(--risk-high);
+  --color-diff-add: var(--diff-add);
+  --color-diff-remove: var(--diff-remove);
+  --color-diff-modify: var(--diff-modify);
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--slate-300);
+  border-radius: 3px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--navy-600);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes highlightSweep {
+  0% {
+    background-position: -100% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes checkDraw {
+  from {
+    stroke-dashoffset: 24;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes progressShrink {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0%;
+  }
+}
+
+@keyframes dotBounce {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.4s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.3s ease-out forwards;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Legal text typography */
+.legal-text {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
+/* Highlight on clause click */
+.clause-highlight {
+  background: linear-gradient(90deg, transparent 0%, var(--accent-soft) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: highlightSweep 0.6s ease-out forwards;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.clause-highlight:hover {
+  background: var(--accent-soft);
+}
+
+/* Typing dots */
+.typing-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: dotBounce 1.4s infinite ease-in-out both;
+}
+
+.typing-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0s;
+}
+
+/* Shimmer loader */
+.shimmer {
+  background: linear-gradient(90deg, var(--surface) 25%, var(--border) 50%, var(--surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Diff colors */
+.diff-added {
+  background-color: rgba(34, 197, 94, 0.1);
+  border-left: 3px solid var(--diff-add);
+}
+
+.diff-removed {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-left: 3px solid var(--diff-remove);
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.diff-modified {
+  background-color: rgba(245, 158, 11, 0.1);
+  border-left: 3px solid var(--diff-modify);
+}
+
+/* Risk badges */
+.risk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.risk-low {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--risk-low);
+}
+
+.risk-medium {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--risk-medium);
+}
+
+.risk-high {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--risk-high);
 }
