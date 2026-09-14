@@ -60,20 +60,15 @@ export default function ChatPanel({ isOpen, onClose, clauses, onCitationClick, i
         setInput('');
         setIsTyping(true);
 
-        // Load API key from environment variables for security
-        const savedKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY || "";
+        const hasKey = localStorage.getItem('lexclarity-api-key') || process.env.NEXT_PUBLIC_GEMINI_API_KEY;
 
-        if (savedKey && savedKey.length > 10) {
-            // REAL GEN AI API CALL (Gemini)
+        if (hasKey) {
+            // REAL GEN AI API CALL (Secure Proxy Backend Route)
             try {
-                // Build a context string from the clauses
                 const documentContext = clauses.map(c => `Clause: ${c.title}\nText: ${c.originalText}`).join('\n\n');
-                const prompt = `You are LexClarity AI, a highly advanced legal assistant. 
-Context Document:\n${documentContext}\n\n
-User Question: ${userText}\n\n
-Answer clearly, concisely, and professionally. Use markdown formatting.`;
+                const prompt = `You are LexClarity AI, a highly advanced legal assistant.\nContext Document:\n${documentContext}\n\nUser Question: ${userText}\n\nAnswer concisely. Use markdown formatting.`;
 
-                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${savedKey}`, {
+                const res = await fetch(`/api/chat`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
