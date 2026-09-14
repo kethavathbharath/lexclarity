@@ -1,8 +1,14 @@
 <div align="center">
-  <img src="https://lucide.dev/icons/scale.svg" alt="LexClarity Logo" width="100"/>
-  <h1>LexClarity</h1>
+  <img src="./public/logo.png" alt="LexClarity Logo" width="320"/>
+  <br/>
   <p><strong>Democratizing Access to Legal Understanding through Generative AI</strong></p>
   <p><i>Built for the AI for Legal Assistance & Access Hackathon</i></p>
+  <br/>
+  <p>
+    👨‍💻 <strong>Developed by K. Bharath Nayak</strong><br/>
+    📧 <a href="mailto:kethavathbharathn@gmail.com">kethavathbharathn@gmail.com</a> &nbsp;|&nbsp;
+    🔗 <a href="https://www.linkedin.com/in/kethavath-bharath-b70a333a7">LinkedIn</a>
+  </p>
 </div>
 
 ---
