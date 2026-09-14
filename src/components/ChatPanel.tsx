@@ -91,7 +91,7 @@ Answer clearly, concisely, and professionally. Use markdown formatting.`;
                     content: aiText,
                     timestamp: new Date().toISOString(),
                 }]);
-            } catch (error) {
+            } catch (_error) {
                 // Fallback on error
                 const response = getAIResponse(userText, clauses);
                 setMessages((prev) => [...prev, {

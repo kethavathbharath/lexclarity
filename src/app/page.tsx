@@ -1,5 +1,5 @@
 'use client';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, type Variants, useScroll, useTransform } from 'framer-motion';
 import {
   FileText,
   GitCompareArrows,
@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-const fadeUp: any = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1,
