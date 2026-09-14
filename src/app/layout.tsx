@@ -5,11 +5,16 @@ export const metadata: Metadata = {
   title: 'LexClarity | AI Legal Assistant',
   description: 'AI-powered legal platform to simplify, compare, and clarify complex legal documents. Built for accessibility and rapid understanding.',
   keywords: ['LegalTech', 'AI', 'Contract Simplification', 'GenAI', 'Legal Assistant'],
-  authors: [{ name: 'LexClarity Team' }],
+  authors: [{ name: 'K. Bharath Nayak' }],
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
   openGraph: {
     title: 'LexClarity | AI Legal Assistant',
     description: 'Democratizing access to legal understanding through Generative AI.',
     type: 'website',
+    images: ['/logo.png'],
   },
 };
 
