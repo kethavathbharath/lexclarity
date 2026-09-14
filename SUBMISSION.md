@@ -1,0 +1,3 @@
+# AI for Legal Assistance & Access
+
+LexClarity is designed to solve the hackathon problem statement of democratizing access to justice using Generative AI...
