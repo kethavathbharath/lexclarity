@@ -6,7 +6,6 @@ import { useTheme } from './ThemeProvider';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import {
-    Scale,
     LayoutDashboard,
     FileText,
     GitCompareArrows,
@@ -48,9 +47,9 @@ export default function Navbar() {
                         <Image
                             src="/logo.png"
                             alt="LexClarity Logo"
-                            width={160}
-                            height={60}
-                            className="h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+                            width={120}
+                            height={45}
+                            className="h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
                             priority
                         />
                     </Link>
@@ -80,16 +79,23 @@ export default function Navbar() {
                     {/* Controls */}
                     <div className="flex items-center gap-2">
                         {/* User Profile */}
-                        <div className="hidden sm:flex items-center gap-3 pl-4 mr-4 border-l border-[var(--border)]">
+                        <div className="hidden lg:flex items-center gap-3 pl-4 mr-2 border-l border-[var(--border)]">
                             <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[var(--accent)] to-[var(--accent-hover)] flex items-center justify-center text-white text-sm font-bold ring-2 ring-white dark:ring-[var(--surface-raised)] shadow-sm">
                                 BN
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-xs font-semibold text-[var(--text-primary)] leading-tight mb-0.5">Bharath Nayak</span>
-                                <a href="mailto:kethavathbharathn@gmail.com" className="flex items-center gap-1 text-[10px] text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors leading-tight">
-                                    <Mail className="w-3 h-3" />
-                                    kethavathbharathn@gmail.com
-                                </a>
+                                <span className="text-xs font-semibold text-[var(--text-primary)] leading-tight mb-0.5">K. Bharath Nayak</span>
+                                <div className="flex items-center gap-2">
+                                    <a href="mailto:kethavathbharathn@gmail.com" className="flex items-center gap-0.5 text-[10px] text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors leading-tight" title="kethavathbharathn@gmail.com">
+                                        <Mail className="w-3 h-3" />
+                                        Email
+                                    </a>
+                                    <span className="text-[var(--border)] text-[10px]">|</span>
+                                    <a href="https://www.linkedin.com/in/kethavath-bharath-b70a333a7" target="_blank" rel="noreferrer" className="flex items-center gap-0.5 text-[10px] text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors leading-tight">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                        LinkedIn
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
