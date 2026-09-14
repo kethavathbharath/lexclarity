@@ -13,11 +13,11 @@
 
 ---
 
-## 🛑 The Problem
-Legal information is complex, heavily jargonized, and exceptionally difficult for the average person to navigate without expensive professional assistance. 
+## 🛑 The Problem Statement
+Legal information is complex, heavily jargonized, and exceptionally difficult for the average person to navigate without expensive professional assistance. This severely limits **access to justice** and leaves marginalized communities vulnerable to predatory agreements and hidden legal risks.
 
-## 💡 Our Solution
-**LexClarity** is a GenAI-powered legal platform that makes contracts, agreements, and policies instantly understandable. Rather than replacing a lawyer, LexClarity acts as a "Legal Co-Pilot," empowering users to understand what they are signing, identify risks, and prepare highly targeted questions for their legal counsel.
+## 💡 Our Solution (Aligning with AI for Legal Assistance & Access)
+**LexClarity** is a GenAI-powered legal tech platform directly addressing the **AI for Legal Assistance & Access** mandate. By making contracts, agreements, and policies instantly understandable, we are democratizing access to basic legal intuition. Rather than replacing a lawyer, LexClarity acts as a "Legal Co-Pilot," empowering users to understand what they are signing, identify risks, and prepare highly targeted questions for professional legal aid in a cost-effective manner.
 
 ---
 
