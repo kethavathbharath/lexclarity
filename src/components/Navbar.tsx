@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useTheme } from './ThemeProvider';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -43,13 +44,15 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2.5 group">
-                        <div className="w-8 h-8 rounded-lg bg-[var(--accent)] flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
-                            <Scale className="w-4.5 h-4.5 text-white" />
-                        </div>
-                        <span className="text-lg font-semibold tracking-tight text-[var(--text-primary)]">
-                            Lex<span className="text-[var(--accent)]">Clarity</span>
-                        </span>
+                    <Link href="/" className="flex items-center group">
+                        <Image
+                            src="/logo.png"
+                            alt="LexClarity Logo"
+                            width={160}
+                            height={60}
+                            className="h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+                            priority
+                        />
                     </Link>
 
                     {/* Desktop Nav */}
